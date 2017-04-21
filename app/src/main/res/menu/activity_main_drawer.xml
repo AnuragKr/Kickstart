@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/grp1" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_payment"
+            android:title="Payment" />
+        <item
+            android:id="@+id/nav_bookingHistory"
+            android:title="Billing History" />
+        <item
+            android:id="@+id/nav_help"
+            android:title="Help" />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_legal"
+            android:title="Legal" />
+    </group>
+    <group android:id="@+id/grp2" android:checkableBehavior="single">
+        <item
+            android:id="@+id/logOut"
+            android:title="Logout"
+            />
+        </group>
+</menu>

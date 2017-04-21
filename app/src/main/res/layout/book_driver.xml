@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.something.android.kickstartcab.DriverBooking">
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:titleTextColor="@color/common_border_color">
+        </android.support.v7.widget.Toolbar>
+        <!-- Login Form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/pickupLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:hint="@string/enter_pickup_location"
+                android:gravity="center">
+
+                <requestFocus />
+            </AutoCompleteTextView>
+            <!--Select Date Of Booking -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/datePicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:text="Set Date"
+                    android:background="@color/settings_background"
+                    />
+
+                <EditText
+                    android:id="@+id/dateText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="@string/date_of_booking"
+                    android:gravity="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!--Select Time-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/timePicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:background="@color/settings_background"
+                    android:layout_weight="1"
+                    android:text="Set Time"
+                    />
+
+                <EditText
+                    android:id="@+id/timeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                    android:focusable="false"
+                    android:layout_weight="1"
+                    android:text="@string/start_time"
+                    android:gravity="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/expandableButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expandableLayout2"
+                android:layout_marginTop="30dp"
+                android:background="@color/collapse"
+                android:text="@string/driver_package"
+                android:textColor="#fff" />
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandableLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/expandableButton3"
+                android:background="@color/settings_background"
+                android:padding="16dp"
+                app:ael_duration="600"
+                app:ael_expanded="true"
+                app:ael_interpolator="accelerateDecelerate"
+                app:ael_orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="@string/in_city"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:ellipsize="end"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/city_charges_details"
+                        android:textSize="18dp"
+                        android:textColorLink="#000"
+                        android:ellipsize="end"
+                        android:autoLink="web"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="@string/outstation"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:ellipsize="end"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outstation_charges_details"
+                        android:textSize="18dp"
+                        android:textColorLink="#000"
+                        android:ellipsize="end"
+                        android:autoLink="web"
+                        />
+                    <!--Extra Thing-->
+                    <EditText
+                        android:id="@+id/area3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:hint="@string/area"
+                        android:inputType="textCapSentences|textAutoCorrect" />
+                </LinearLayout>
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+            <Spinner
+                android:id="@+id/packageSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                />
+            <Button
+                android:id="@+id/book"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:gravity="bottom|center_horizontal"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorPrimary"
+                android:onClick="selfDestruct"
+                android:padding="10dp"
+                android:text="@string/book" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

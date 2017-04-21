@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.something.android.kickstartcab.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <!-- Header Starts -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@layout/header_gradient"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+            <!-- Logo Start-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/kickstart_logo" />
+            <!--Logo Ends -->
+        </LinearLayout>
+        <!-- Header Ends -->
+        <!-- Login Form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+            <!-- Email Label -->
+            <EditText
+                android:id="@+id/userEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/enter_email"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:layout_margin="5dp"/>
+            <!-- Password -->
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textPassword|textMultiLine"
+                android:layout_margin="5dp"
+                />
+            <!-- Login -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:scaleType="center"
+                android:id="@+id/profile"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorPrimary"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/new_to_kickstart"
+                android:padding="20dp"
+                android:layout_below="@id/profile"
+                android:id="@+id/register"
+                android:scaleType="center"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password"
+                android:id="@+id/forgot_password"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/common_border_color"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

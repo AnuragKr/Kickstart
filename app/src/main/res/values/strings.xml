@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Kickstart</string>
+    <string name="booking">Booking History</string>
+    <string name="contact">Contact Us</string>
+    <string name="help">Help?</string>
+    <string name="setting">Setting</string>
+    <string name="payment">Payment</string>
+    <string name="edit_preference">Change Vehicle Type</string>
+    <string name="add_address">Add Address</string>
+    <string name="select_address">Select Address</string>
+    <string name="add_button">Add Address</string>
+    <string name="change_vehicle_button">Change Vehicle</string>
+    <string name="house_info">House No. And Street Name</string>
+    <string name="area">Area</string>
+    <string name="Landmark">Landmark</string>
+    <string name="pin_code">Pincode</string>
+    <string name="district">District</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="vehicle_type_first">1.Turn-Out Vehicle</string>
+    <string name="paytm_payment">Paytm</string>
+    <string name="paytm_payment_info">Number - 8105600445</string>
+    <string name="upi_payment">UPI</string>
+    <string name="upi_payment_info">Id - kickstart@hdfcbank</string>
+    <string name="vehicle_type">Types Of Vehicle</string>
+    <string name="vehicle_type_second">2.Ramp Vehicle</string>
+    <string name="vehicle_type_first__description">Taxi with Turn-out wheel chair :
+    The front seat turns out of the car when it is needed.A wheel chair frame is attached to this,enabling the turned out seat to come out of the vehicle.</string>
+    <string name="vehicle_type_second__description">Taxi with Wheel chair roll-in Ramp:
+    The wheel chair user can go right inside the vehicle with the wheel chair,which will be locked for safety.Seat belt for additional safety.</string>>
+    <string name="action_settings">Settings</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="phone_number">Ph. No.- 91-8105600445/080-32327777</string>
+    <string name="email">Email - info@kickstartcabs.com</string>
+    <string name="disclaimer_dscription">We are NOT an ambulance service and are not equipped to handle health emergencies,like heart attack
+    ,stroke etc.We do not claim responsibility for any medical emergencies that may occur to the user during the journey with Kickstart.</string>
+    <string name="disclaimer_title">DISCLAIMER</string>
+    <string name="outstation_package">Outstation Package</string>
+    <string name="visit_to_website">Click the link below to know about package</string>
+    <string name="website_link">http://www.kickstartcabs.com/special-travel-packages/</string>
+    <string name="important_info">Important Information - This service is available only in Bangalore.Kindly make your booking in advance 12hr so that there will not be any problem with availbility.</string>
+    <string name="vehicle_change">*You can change your vehicle preferrence here. </string>
+    <string name="driver_package">DRIVER PACKAGE</string>
+    <string name="in_city">For Inside City </string>
+    <string name="city_charges_details">Minimum Charges - 4hr @ Rs300(6AM - 10PM) + Extra Time Rs75(Per Hour) + Booking Fees Rs20 + 6%TAX\n
+                                        Extra Charges(Beyond 6AM - 10PM) -  Flat fees Rs150 + Rs75(Per Hour)  </string>
+    <string name="outstation">For Outstation </string>
+    <string name="outstation_charges_details">Minimum Charges - Rs1200(6AM - 10PM) + Booking Fees Rs20 + 6%TAX\n
+                                        Extra Charges(Beyond 6AM - 10PM) -  Flat fees Rs150 + Rs75(Per Hour)</string>
+    <string name="charge_detail">Driver Charges Details  </string>
+    <string name="register">Register</string>
+    <string name="already_has_account">Already has Account? Login here</string>
+    <string name="enter_email">Email</string>
+    <string name="password">Password</string>
+    <string name="re_enter_password">Re-Enter Password</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="book_a_cab">Book A Cab</string>
+    <string name="book_a_driver">Book A Driver</string>
+    <string name="login">Login</string>
+    <string name="new_to_kickstart">New to Kickstart? Register here</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="date_of_booking">Date Of Booking</string>
+    <string name="start_time">Start Time</string>
+    <string name="enter_pickup_location">Enter Pickup Location</string>
+    <string name="bill_number">Bill Number:</string>
+    <string name="total_drive_time">Total Drive Time:</string>
+    <string name="total_amount">Total Amount:</string>
+    <string name="payment_status">Payment Status:</string>
+    <string name="book">BOOK</string>
+    <string name="confirm">Confirm</string>
+    <string name="hello">Hello!</string>
+    <string name="nav_email">android.studio@android.com</string>
+</resources>

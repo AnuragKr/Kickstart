@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.something.android.kickstartcab.CabBooking">
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:titleTextColor="@color/common_border_color">
+        </android.support.v7.widget.Toolbar>
+        <!-- Login Form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/pickupLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:hint="@string/enter_pickup_location"
+                android:gravity="center">
+
+                <requestFocus />
+            </AutoCompleteTextView>
+            <!--Select Date Of Booking -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/datePicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:text="Set Date"
+                    android:background="@color/settings_background"/>
+
+                <EditText
+                    android:id="@+id/dateText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:text="@string/date_of_booking"
+                    android:gravity="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!--Select Time-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/timePicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:text="Set Time"
+                    android:background="@color/settings_background"/>
+
+                <EditText
+                    android:id="@+id/timeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                    android:focusable="false"
+                    android:layout_weight="1"
+                    android:text="@string/start_time"
+                    android:gravity="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!--Package Selection-->
+            <Spinner
+                android:id="@+id/packageSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/vehicle_change_text"
+                android:text="@string/vehicle_change"
+                android:gravity="center"
+                android:textColor="@color/text_red_colour"
+                />
+            <!--Vehicle Selection-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/vehicleSelection"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/help_vehicle"
+                    android:text="@string/help"
+                    android:background="@drawable/rounded_corner"
+                    android:focusable="false"/>
+            </LinearLayout>
+            <!--Book-->
+            <Button
+                android:id="@+id/book"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:gravity="bottom|center_horizontal"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorPrimary"
+                android:onClick="selfDestruct"
+                android:padding="10dp"
+                android:text="@string/book" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EF6C00</color>
+    <color name="colorPrimaryDark">#E65100</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="common_border_color">#000</color>
+    <color name="collapse">#FF6D00</color>
+    <color name="text_red_colour">#F44336</color>
+    <color name="white">#ffffff</color>
+    <color name="settings_background">#FFCC80</color>
+    <color name="paytm">#90ba1f04</color>
+    <color name="upi">#90b77803</color>
+</resources>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.something.android.kickstartcab.Registration">
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <!-- Header Starts -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@layout/header_gradient"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+            <!-- Logo Start-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/kickstart_logo" />
+            <!--Logo Ends -->
+        </LinearLayout>
+        <!-- Header Ends -->
+        <!-- Login Form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+            <!--First Name -->
+            <EditText
+                android:id="@+id/first_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textCapWords|textAutoCorrect|textMultiLine"
+                android:hint="@string/first_name"
+                android:layout_margin="5dp"
+                />
+
+            <!--Last Name -->
+            <EditText
+                android:id="@+id/last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textCapWords|textAutoCorrect|textMultiLine"
+                android:hint="@string/last_name"
+                android:layout_margin="5dp"
+                />
+            <!--Age Category-->
+            <Spinner
+                android:id="@+id/age_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            <!--Email-Id -->
+            <EditText
+                android:id="@+id/email_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
+                android:hint="@string/enter_email"
+                android:layout_margin="5dp"
+                />
+            <!--Phone -->
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mobile_number"
+                android:gravity="center"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:layout_margin="5dp"
+                />
+            <!--PreferenceVehicle-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/vehicle_category"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/help_vehicle"
+                    android:text="Help\?"
+                    android:background="@drawable/rounded_corner"
+                    android:focusable="false"/>
+            </LinearLayout>
+            <!--Password -->
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/password"
+                android:inputType="textPassword|textMultiLine"
+                android:layout_margin="5dp"
+                />
+            <!--Re-Enter Password-->
+            <EditText
+                android:id="@+id/re_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/re_enter_password"
+                android:inputType="textPassword|textMultiLine"
+                android:layout_margin="5dp"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="selfDestruct"
+                android:text="@string/register"
+                android:scaleType="center"
+                android:id="@+id/register"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorPrimaryDark"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="selfDestruct"
+                android:text="@string/already_has_account"
+                android:padding="20dp"
+                android:layout_below="@id/register"
+                android:id="@+id/back"
+                android:scaleType="center"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimaryDark"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

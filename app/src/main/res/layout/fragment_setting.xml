@@ -1,0 +1,99 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.something.android.kickstartcab.Fragment.SettingFragment">
+    //Toolbar
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:titleTextColor="@color/common_border_color"></android.support.v7.widget.Toolbar>
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <Button
+            android:id="@+id/expandableButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:drawableLeft="@drawable/plus_circle_big"
+            android:paddingLeft="10dp"
+            android:text="@string/add_address"
+            android:textColor="@color/white" />
+
+        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:id="@+id/expandableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expandableButton1"
+            android:background="@color/settings_background"
+            android:padding="10dp"
+            app:ael_duration="3000"
+            app:ael_expanded="true"
+            app:ael_interpolator="accelerateDecelerate"
+            app:ael_orientation="vertical">
+            <ScrollView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <!-- House Number And Street Name-->
+                <EditText
+                    android:id="@+id/house_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/house_info"
+                    android:inputType="textCapSentences|textAutoCorrect|textMultiLine" />
+                <!-- Area-->
+                <EditText
+                    android:id="@+id/area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="@string/area"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="textCapSentences|textAutoCorrect|textMultiLine" />
+                <!-- Landmark-->
+                <EditText
+                    android:id="@+id/landmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="@string/Landmark"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="textCapSentences|textAutoCorrect|textMultiLine" />
+                <!--Button-->
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addAddress"
+                    android:text="@string/add_button"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimary"/>
+                    />
+            </LinearLayout>
+            </ScrollView>
+        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+    </RelativeLayout>
+</FrameLayout>
