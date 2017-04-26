@@ -62,7 +62,7 @@ import static com.something.android.kickstartcab.R.layout.book_new_cab;
 
 public class CabBooking extends AppCompatActivity implements View.OnClickListener {
     private AutoCompleteTextView pickupLoc;
-    private String spinnerItem, defaultVehicle, vehicleSpinnerItem, customerId,bookingTime,bookingDate,pickLoc;
+    private String spinnerItem,spinnerCitySelection, defaultVehicle, vehicleSpinnerItem, customerId,bookingTime,bookingDate,pickLoc;
     private String errorMessage = null, message = null;
     private DatePickerDialog fromDatePickerDialog;
     private TimePickerDialog fromTimePickerDialog;
@@ -110,7 +110,9 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
         categories.add("Choose Package Type");
         categories.add("2hr @ Rs800 +  6%Tax");
         categories.add("4hr @ Rs1200 + 6%Tax");
-        categories.add("8hr @ Rs3000 + 6%Tax");
+        categories.add("8hr @ Rs2400 + 6%Tax");
+        categories.add("Airport Pickup @ Rs1800 + 6%Tax");
+        categories.add("Airport Drop @ Rs1600 + 6%Tax");
         categories.add("Custom Outstation Package");
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, categories) {
@@ -154,6 +156,57 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        /**Choose City**/
+        // Spinner element For Package Selection
+        final Spinner spinnerCity = (Spinner) findViewById(R.id.chooseCity);
+        // Spinner click listener
+        //Spinner Drop Down Element
+        List<String> cityCategories = new ArrayList<String>();
+        cityCategories.add("Choose City");
+        cityCategories.add("Bangalore");
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item,cityCategories) {
+            @Override
+            public boolean isEnabled(int position) {
+                if (position == 0) {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if (position == 0) {
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                } else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+        // Specify the layout to use when the list of choices appears
+        cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinnerCity.setAdapter(cityAdapter);
+        //After Selecting Spinner Item
+        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerCitySelection = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
 
         /**Drop Down Option For Vehicle**/
 
@@ -255,6 +308,8 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
                     Toast.makeText(getApplicationContext(), "Please Select Time", Toast.LENGTH_LONG).show();
                 } else if (spinnerItem.equals("Choose Package Type")) {
                     Toast.makeText(getApplicationContext(), "Please Select Package", Toast.LENGTH_LONG).show();
+                } else if (spinnerCitySelection.equals("Choose City")) {
+                    Toast.makeText(getApplicationContext(), "Please Select City", Toast.LENGTH_LONG).show();
                 } else {
                     final ProgressDialog pd = new ProgressDialog(CabBooking.this);
                     pd.setMessage("Loading...");
@@ -266,12 +321,13 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
                     params.put("package", spinnerItem);
                     params.put("customerId", customerId);
                     params.put("preferred_vehicle", vehicleSpinnerItem);
+                    params.put("city", spinnerCitySelection);
                     params.put("serviceRequested", "CAR");
                     Uri.Builder builder = new Uri.Builder();
                     builder.scheme("https")
                             .authority("kickstartcabs.com")
                             .appendPath("android")
-                            .appendPath("bookCabJsonRequest.php");
+                            .appendPath("bookCabJsonRequestTest.php");
                     String bookingUrl = builder.build().toString();
                     JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST,bookingUrl,
                             new JSONObject(params), new Response.Listener<JSONObject>() {

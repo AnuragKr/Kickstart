@@ -36,6 +36,7 @@
                 android:ems="10"
                 android:inputType="textMultiLine"
                 android:hint="@string/enter_pickup_location"
+                android:textColorHint="@drawable/text_hint"
                 android:gravity="center">
 
                 <requestFocus />
@@ -98,6 +99,11 @@
             <!--Package Selection-->
             <Spinner
                 android:id="@+id/packageSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp" />
+            <Spinner
+                android:id="@+id/chooseCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp" />

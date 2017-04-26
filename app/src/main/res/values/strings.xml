@@ -72,4 +72,9 @@
     <string name="confirm">Confirm</string>
     <string name="hello">Hello!</string>
     <string name="nav_email">android.studio@android.com</string>
+    <string name="nav_payment">Payment</string>
+    <string name="nav_bookingHistory">Booking History</string>
+    <string name="nav_help">Help</string>
+    <string name="nav_address">Address</string>
+    <string name="nav_legal">Legal</string>
 </resources>

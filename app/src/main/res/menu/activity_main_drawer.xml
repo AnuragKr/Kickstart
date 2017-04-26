@@ -2,21 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:id="@+id/grp1" android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_payment"
-            android:title="Payment" />
+
         <item
             android:id="@+id/nav_bookingHistory"
-            android:title="Billing History" />
-        <item
-            android:id="@+id/nav_help"
-            android:title="Help" />
+            android:title="@string/nav_bookingHistory" />
         <item
             android:id="@+id/nav_settings"
-            android:title="Settings" />
+            android:title="@string/nav_address" />
+        <item
+            android:id="@+id/nav_payment"
+            android:title="@string/nav_payment" />
+        <item
+            android:id="@+id/nav_help"
+            android:title="@string/nav_help" />
+
         <item
             android:id="@+id/nav_legal"
-            android:title="Legal" />
+            android:title="@string/nav_legal" />
     </group>
     <group android:id="@+id/grp2" android:checkableBehavior="single">
         <item

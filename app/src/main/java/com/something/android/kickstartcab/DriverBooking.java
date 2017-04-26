@@ -58,7 +58,7 @@ import static com.something.android.kickstartcab.R.layout.book_driver;
 
 public class DriverBooking extends AppCompatActivity implements  View.OnClickListener{
     private EditText pickupLoc;
-    private String spinnerItem, customerId,bookingTime,bookingDate,pickLoc;
+    private String spinnerItem,spinnerCitySelection,customerId,bookingTime,bookingDate,pickLoc;
     private String errorMessage = null, message = null;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     private DatePickerDialog fromDatePickerDialog;
@@ -172,6 +172,57 @@ public class DriverBooking extends AppCompatActivity implements  View.OnClickLis
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        /**Choose City**/
+        // Spinner element For Package Selection
+        final Spinner spinnerCity = (Spinner) findViewById(R.id.chooseCity);
+        // Spinner click listener
+        //Spinner Drop Down Element
+        List<String> cityCategories = new ArrayList<String>();
+        cityCategories.add("Choose City");
+        cityCategories.add("Bangalore");
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item,cityCategories) {
+            @Override
+            public boolean isEnabled(int position) {
+                if (position == 0) {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if (position == 0) {
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                } else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+        // Specify the layout to use when the list of choices appears
+        cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinnerCity.setAdapter(cityAdapter);
+        //After Selecting Spinner Item
+        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerCitySelection = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
 
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,6 +241,8 @@ public class DriverBooking extends AppCompatActivity implements  View.OnClickLis
                     Toast.makeText(getApplicationContext(), "Please Select Time", Toast.LENGTH_LONG).show();
                 }else if (spinnerItem.equals("Choose Package Type")) {
                     Toast.makeText(getApplicationContext(), "Please Select Package", Toast.LENGTH_LONG).show();
+                }else if (spinnerCity.equals("Choose City")) {
+                    Toast.makeText(getApplicationContext(), "Please Select City", Toast.LENGTH_LONG).show();
                 }
                 else {
                     final ProgressDialog pd = new ProgressDialog(DriverBooking.this);
