@@ -11,14 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.something.android.kickstartcab.R;
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+import com.something.android.kickstartcab.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HelpFragment extends Fragment implements View.OnClickListener {
-    ExpandableRelativeLayout expandableLayout1, expandableLayout2;
+    ExpandableRelativeLayout expandableLayout1, expandableLayout2,expandableLayout3;
 
     public HelpFragment() {
         // Required empty public constructor
@@ -57,6 +57,10 @@ public class HelpFragment extends Fragment implements View.OnClickListener {
         Button b2 = (Button) view.findViewById(R.id.expandableButton2);
         expandableLayout2 = (ExpandableRelativeLayout) view.findViewById(R.id.expandableLayout2);
         b2.setOnClickListener(this);
+
+        Button b3 = (Button) view.findViewById(R.id.expandableButton3);
+        expandableLayout3 = (ExpandableRelativeLayout) view.findViewById(R.id.expandableLayout3);
+        b3.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -73,6 +77,13 @@ public class HelpFragment extends Fragment implements View.OnClickListener {
             case R.id.expandableButton2:
                 try{
                     expandableLayout2.toggle();
+                } catch(Throwable e){
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.expandableButton3:
+                try{
+                    expandableLayout3.toggle();
                 } catch(Throwable e){
                     e.printStackTrace();
                 }

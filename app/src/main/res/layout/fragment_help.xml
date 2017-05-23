@@ -38,7 +38,7 @@
         android:background="#90ba1f04"
         android:padding="16dp"
         app:ael_duration="600"
-        app:ael_expanded="true"
+        app:ael_expanded="false"
         app:ael_interpolator="accelerateDecelerate"
         app:ael_orientation="vertical">
         <LinearLayout
@@ -78,7 +78,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/expandableLayout1"
-            android:layout_marginTop="30dp"
             android:background="@color/colorPrimary"
             android:text="@string/outstation_package"
             android:textColor="#fff" />
@@ -91,7 +90,7 @@
             android:background="@color/settings_background"
             android:padding="16dp"
             app:ael_duration="600"
-            app:ael_expanded="true"
+            app:ael_expanded="false"
             app:ael_interpolator="accelerateDecelerate"
             app:ael_orientation="vertical">
             <LinearLayout
@@ -119,6 +118,50 @@
                 <!--Extra Thing-->
                 <EditText
                     android:id="@+id/area2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="@string/area"
+                    android:inputType="textCapSentences|textAutoCorrect" />
+            </LinearLayout>
+
+        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        <Button
+            android:id="@+id/expandableButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expandableLayout2"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/inside_city_car"
+            android:textColor="#fff" />
+
+        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:id="@+id/expandableLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expandableButton3"
+            android:background="@color/settings_background"
+            android:padding="16dp"
+            app:ael_duration="600"
+            app:ael_expanded="false"
+            app:ael_interpolator="accelerateDecelerate"
+            app:ael_orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/inside_city_charges_details_car"
+                    android:textSize="18dp"
+                    android:ellipsize="end"
+                    />
+                <!--Extra Thing-->
+                <EditText
+                    android:id="@+id/area3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

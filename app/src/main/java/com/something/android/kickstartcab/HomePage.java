@@ -125,7 +125,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.nav_bookingHistory) {
             gotoCategory(Config.Booking_History_Category);
 
-        } else if (id == R.id.nav_help) {
+        } else if (id == R.id.nav_billingHistory) {
+            gotoCategory(Config.Billing_History_Category);
+
+        }
+        else if (id == R.id.nav_help) {
             gotoCategory(Config.Help_Category);
 
         } else if (id == R.id.nav_settings) {

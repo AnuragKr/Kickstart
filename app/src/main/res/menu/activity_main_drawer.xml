@@ -7,6 +7,9 @@
             android:id="@+id/nav_bookingHistory"
             android:title="@string/nav_bookingHistory" />
         <item
+            android:id="@+id/nav_billingHistory"
+            android:title="@string/nav_billingHistory" />
+        <item
             android:id="@+id/nav_settings"
             android:title="@string/nav_address" />
         <item

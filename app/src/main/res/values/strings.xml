@@ -47,6 +47,8 @@
     <string name="outstation">For Outstation </string>
     <string name="outstation_charges_details">Minimum Charges - Rs1200(6AM - 10PM) + Booking Fees Rs20 + 6%TAX\n
                                         Extra Charges(Beyond 6AM - 10PM) -  Flat fees Rs150 + Rs75(Per Hour)</string>
+    <string name="inside_city_charges_details_car">1. 2hr(20km) @ Rs850(incl. Tax)\n2. 4hr(40km) @ Rs1272(incl. Tax)\n3. 8hr(80km) @ Rs3400(incl. Tax)\n4. Airport Pickup/Drop @ Rs2226(incl. Tax)\nExtra Charges(Beyond Permitted Time/Km) - Rs200(Per Hour) + Rs20(Per Km)  </string>
+    <string name="inside_city_car">Inside City Package </string>
     <string name="charge_detail">Driver Charges Details  </string>
     <string name="register">Register</string>
     <string name="already_has_account">Already has Account? Login here</string>
@@ -73,8 +75,15 @@
     <string name="hello">Hello!</string>
     <string name="nav_email">android.studio@android.com</string>
     <string name="nav_payment">Payment</string>
-    <string name="nav_bookingHistory">Booking History</string>
+    <string name="nav_bookingHistory">Booking</string>
+    <string name="nav_billingHistory">Billing</string>
     <string name="nav_help">Help</string>
     <string name="nav_address">Address</string>
     <string name="nav_legal">Legal</string>
+    <string name="booking_status">Status:</string>
+    <string name="booking_id">Booking Id:</string>
+    <string name="startTime">Start Time:</string>
+    <string name="startDate">Start Date:</string>
+    <string name="vehicle_type_info">Vehicle Type:</string>
+    <string name="package_type">Package:</string>
 </resources>

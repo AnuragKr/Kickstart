@@ -72,7 +72,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/expandableLayout1"
-            android:layout_marginTop="30dp"
             android:background="@color/colorPrimary"
             android:text="@string/upi_payment"
             android:textColor="#fff" />

@@ -108,11 +108,11 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
         //Spinner Drop Down Element
         List<String> categories = new ArrayList<String>();
         categories.add("Choose Package Type");
-        categories.add("2hr @ Rs800 +  6%Tax");
-        categories.add("4hr @ Rs1200 + 6%Tax");
-        categories.add("8hr @ Rs2400 + 6%Tax");
-        categories.add("Airport Pickup @ Rs1800 + 6%Tax");
-        categories.add("Airport Drop @ Rs1600 + 6%Tax");
+        categories.add("2hr(20km) @ Rs850");
+        categories.add("4hr(40km) @ Rs1272");
+        categories.add("8hr(80km) @ Rs3400");
+        categories.add("Airport Pickup @ Rs2226");
+        categories.add("Airport Drop @ Rs2226");
         categories.add("Custom Outstation Package");
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, categories) {
@@ -267,11 +267,11 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
             }
         });
         //Initializing
-        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         timeFormatter = new SimpleDateFormat("H:mm");
-        final TextView helpText = (TextView) findViewById(R.id.help_vehicle);
+        final TextView helpTextForVehicle = (TextView) findViewById(R.id.help_vehicle);
         /**Help Option For Vehicle Selection**/
-        helpText.setOnClickListener(new View.OnClickListener() {
+        helpTextForVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), VehicleTypeInfo.class);
@@ -426,6 +426,7 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
                             }
                         }
                     });
+                    jsonRequest.setShouldCache(false);
                     MySingleton.getInstance(CabBooking.this).addToRequestque(jsonRequest);
                 }
             }
@@ -491,7 +492,7 @@ public class CabBooking extends AppCompatActivity implements View.OnClickListene
     //Drop Down Option For Location
     private void getLocationDropDownOption() {
         Uri.Builder builder = new Uri.Builder();
-        builder.scheme("https")
+        builder.scheme("http")
                 .authority("kickstartcabs.com")
                 .appendPath("android")
                 .appendPath("sendAddressChoice.php")

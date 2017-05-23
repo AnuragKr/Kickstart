@@ -17,12 +17,11 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <TableRow>
                     <TextView
-                        android:text="@string/booking_id"
+                        android:text="@string/bill_number"
                         android:paddingRight="10dp"
                         android:textSize="20dp"
                         android:textStyle="bold"
@@ -31,7 +30,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/bookingId"
+                        android:id="@+id/billNumber"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -41,8 +40,8 @@
 
                 <TableRow>
                     <TextView
-                        android:text="@string/startDate"
-                        android:textSize="20sp"
+                        android:text="@string/total_drive_time"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:paddingRight="10dp"
                         android:layout_width="wrap_content"
@@ -50,7 +49,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/startDate"
+                        android:id="@+id/totalDriveTime"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -60,8 +59,8 @@
 
                 <TableRow>
                     <TextView
-                        android:text="@string/startTime"
-                        android:textSize="20sp"
+                        android:text="@string/total_amount"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:paddingRight="10dp"
                         android:layout_width="wrap_content"
@@ -69,7 +68,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/startTime"
+                        android:id="@+id/totalAmount"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -79,61 +78,22 @@
 
                 <TableRow>
                     <TextView
-                        android:text="@string/vehicle_type_info"
+                        android:text="@string/payment_status"
                         android:textStyle="bold"
-                        android:textSize="20sp"
+                        android:textSize="20dp"
                         android:paddingRight="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         />
 
                     <TextView
-                        android:id="@+id/vehicle_type_info"
+                        android:id="@+id/paymentStatus"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         />
 
                 </TableRow>
-                <TableRow>
-                    <TextView
-                        android:text="@string/package_type"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingRight="10dp"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        />
-
-                    <TextView
-                        android:id="@+id/packageType"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        />
-
-                </TableRow>
-                <TableRow>
-                    <TextView
-                        android:text="@string/booking_status"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingRight="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-
-                    <TextView
-                        android:id="@+id/bookingStatus"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-
-                </TableRow>
-
             </TableLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

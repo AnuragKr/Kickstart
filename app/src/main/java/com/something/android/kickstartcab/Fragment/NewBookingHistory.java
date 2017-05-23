@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BookingHistory extends Fragment implements RecyclerView.OnScrollChangeListener {
+public class NewBookingHistory extends Fragment {
     //Creating a List of Booking History
     private List<BookingInfo> listBookingInfos;
 
@@ -53,11 +54,7 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
     private RequestQueue requestQueue;
 
     //The request counter to send ?page=1, ?page=2  requests
-    private int requestCount = 1,temp = 1,maxLimit;
-
-    public BookingHistory() {
-        // Required empty public constructor
-    }
+    private int requestCount = 1, temp = 1, maxLimit;
 
 
     @Override
@@ -67,6 +64,7 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
         customerId = SessionManagement.getInstance(getContext()).getCustomerId();
         return inflater.inflate(R.layout.fragment_booking_history, container, false);
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -81,7 +79,7 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
                     getActivity().finish();
                 }
             });
-        }catch(Throwable e){
+        } catch (Throwable e) {
             e.printStackTrace();
         }
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
@@ -95,16 +93,32 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
 
         //Calling method to get data to fetch data
         getData();
+        final RecyclerView.OnScrollListener mOnScrollChangeListener = new RecyclerView.OnScrollListener() {
+            //Overriden method to detect scrolling
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int scrollX, int scrollY) {
+                //Ifscrolled at last then
+                if (isLastItemDisplaying(recyclerView)) {
+                    if (temp <= maxLimit) {
+                        getData();
+                    } else {
+                        Toast.makeText(getContext(), "No More Booking History", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+        };
 
         //Adding an scroll change listener to recyclerview
-        recyclerView.setOnScrollChangeListener(this);
+        recyclerView.addOnScrollListener(mOnScrollChangeListener);
 
         //initializing our adapter
-        adapter = new CardAdapter(listBookingInfos, getContext());
+        adapter = new BookingAdapter(listBookingInfos, getContext());
 
         //Adding adapter to recyclerview
         recyclerView.setAdapter(adapter);
     }
+
     //Request to get json from server we are passing an integer here
     //This integer will used to specify the page number for the request ?page = requestcount
     //This method would return a JsonArrayRequest that will be added to the request queue
@@ -115,14 +129,15 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
         builder.scheme("https")
                 .authority("kickstartcabs.com")
                 .appendPath("android")
-                .appendPath("bookingNewHistory.php")
-                .appendQueryParameter("page",String.valueOf(requestCount))
-                .appendQueryParameter("customerId",customerId);
+                .appendPath("bookingCustomerHistory.php")
+                .appendQueryParameter("page", String.valueOf(requestCount))
+                .appendQueryParameter("customerId", customerId);
         String bookingHistoryUrl = builder.build().toString();
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(bookingHistoryUrl, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 //Calling method parseData to parse the json response
+                Log.v("Response", response.toString());
                 parseData(response);
                 //Hiding the progressbar
                 progressBar.setVisibility(View.GONE);
@@ -160,6 +175,7 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
             }
         });
         //Returning the request
+        jsonArrayRequest.setShouldCache(false);
         return jsonArrayRequest;
     }
 
@@ -174,7 +190,7 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
     //This method will parse json data
     private void parseData(JSONArray array) {
         for (int i = 0; i < array.length(); i++) {
-            //Creating the superhero object
+            //Creating the BookingInfo object
             BookingInfo bookingInfo = new BookingInfo();
             JSONObject json = null;
             try {
@@ -182,10 +198,19 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
                 json = array.getJSONObject(i);
 
                 //Adding data to the superhero object
-                bookingInfo.setBillNumber(json.getString(Config.TAG_BILL_NUMBER));
-                bookingInfo.setTotalDriveTime(json.getString(Config.TAG_TOTAL_DRIVE_TIME));
-                bookingInfo.setTotalAmount(json.getString(Config.TAG_AMOUNT));
-                bookingInfo.setPaymentStatus(json.getString(Config.TAG_PAYMENT_STATUS));
+                bookingInfo.setBookingId(json.getString(Config.TAG_BOOKING_ID));
+                bookingInfo.setStartDate(json.getString(Config.TAG_START_DATE));
+                bookingInfo.setStartTime(json.getString(Config.TAG_START_TIME));
+                bookingInfo.setVehicleType(json.getString(Config.TAG_VEHICLE_TYPE));
+                try {
+                    String[] packageType = json.getString(Config.TAG_PACKAGE_TYPE).split("\\+");
+                    String packageInfo = packageType[1];
+                    bookingInfo.setPackageType(packageInfo);
+                    Log.v("Package", packageInfo);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+                bookingInfo.setBookingStatus(json.getString(Config.TAG_BOOKING_STATUS));
                 maxLimit = Integer.parseInt(json.getString(Config.TAG_MAX_LIMIT));
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -200,26 +225,14 @@ public class BookingHistory extends Fragment implements RecyclerView.OnScrollCha
 
     //This method would check that the recyclerview scroll has reached the bottom or not
     private boolean isLastItemDisplaying(RecyclerView recyclerView) {
-        if (recyclerView.getAdapter().getItemCount() != 0 && recyclerView.getAdapter().getItemCount() <= 7 ) {
+        if (recyclerView.getAdapter().getItemCount() != 0 && recyclerView.getAdapter().getItemCount() <= 7) {
             int lastVisibleItemPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+            Log.d("Initial Temp", "" + temp);
             if (lastVisibleItemPosition != RecyclerView.NO_POSITION && lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1) {
+                temp++;
                 return true;
             }
         }
         return false;
-    }
-
-    //Overriden method to detect scrolling
-    @Override
-    public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-        //Ifscrolled at last then
-        if (isLastItemDisplaying(recyclerView)) {
-            if(temp < maxLimit) {
-                getData();
-            }
-            else{
-                Toast.makeText(getContext(),"No More Billing History",Toast.LENGTH_SHORT).show();
-            }
-        }
     }
 }

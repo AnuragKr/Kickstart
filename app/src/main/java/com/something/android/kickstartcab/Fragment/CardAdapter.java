@@ -14,27 +14,27 @@ import java.util.List;
 /**
  * Created by Anurag10 on 2/28/2017.
  */
-
+/**Billing Card Adapter**/
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     private Context context;
 
     //List to store all superheroes
-    private List<BookingInfo> bookingInfos;
+    private List<BillingInfo> billingInfos;
 
     //Constructor of this class
-    public CardAdapter(List<BookingInfo> bookingInfos, Context context){
+    public CardAdapter(List<BillingInfo> billingInfos, Context context){
         super();
         //Getting all  bookingInfos
-        this.bookingInfos = bookingInfos;
+        this.billingInfos = billingInfos;
         this.context = context;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.booking_card, parent, false);
+                .inflate(R.layout.billing_card, parent, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
@@ -43,19 +43,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         //Getting the particular item from the list
-        BookingInfo bookingInfo =  bookingInfos.get(position);
+        BillingInfo billingInfo =  billingInfos.get(position);
 
         //Showing data on the views
-        holder.billNumber.setText(bookingInfo.getBillNumber());
-        holder.totalDriveTime.setText(bookingInfo.getTotalDriveTime());
-        holder.totalAmount.setText(bookingInfo.getTotalAmount());
-        holder.paymentStatus.setText(bookingInfo.getPaymentStatus());
+        holder.billNumber.setText(billingInfo.getBillNumber());
+        holder.totalDriveTime.setText(billingInfo.getTotalDriveTime());
+        holder.totalAmount.setText(billingInfo.getTotalAmount());
+        holder.paymentStatus.setText(billingInfo.getPaymentStatus());
 
     }
 
     @Override
     public int getItemCount() {
-        return bookingInfos.size();
+        return billingInfos.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

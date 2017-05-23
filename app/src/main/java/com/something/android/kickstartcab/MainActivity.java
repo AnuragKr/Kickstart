@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
                                     new JSONObject(params), new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
-                                    //pd.cancel();
                                     try {
                                         String code = response.getString("code");
                                         message = response.getString("message");
@@ -133,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
                                         handler.postDelayed(new Runnable() {
                                             public void run() {
                                                 pd.dismiss();
-                                                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), errorMessage + "1", Toast.LENGTH_LONG).show();
                                                 passWord.setText("");
                                             }
-                                        }, 5000);
+                                        }, 2000);
                                     } else if (volleyError instanceof ServerError) {
                                         errorMessage = "The server could not be found. Please try again after some time!!";
                                         Handler handler = new Handler();
@@ -146,17 +145,17 @@ public class MainActivity extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                                                 passWord.setText("");
                                             }
-                                        }, 5000);
+                                        }, 2000);
                                     } else if (volleyError instanceof AuthFailureError) {
                                         errorMessage = "Cannot connect to Internet...Please check your connection!";
                                         Handler handler = new Handler();
                                         handler.postDelayed(new Runnable() {
                                             public void run() {
                                                 pd.dismiss();
-                                                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), errorMessage + "2", Toast.LENGTH_LONG).show();
                                                 passWord.setText("");
                                             }
-                                        }, 5000);
+                                        }, 2000);
                                     } else if (volleyError instanceof ParseError) {
                                         errorMessage = "Parsing error! Please try again after some time!!";
                                         Handler handler = new Handler();
@@ -166,17 +165,17 @@ public class MainActivity extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                                                 passWord.setText("");
                                             }
-                                        }, 5000);
+                                        }, 2000);
                                     } else if (volleyError instanceof NoConnectionError) {
                                         errorMessage = "Cannot connect to Internet...Please check your connection!";
                                         Handler handler = new Handler();
                                         handler.postDelayed(new Runnable() {
                                             public void run() {
                                                 pd.dismiss();
-                                                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), errorMessage+ "3", Toast.LENGTH_LONG).show();
                                                 passWord.setText("");
                                             }
-                                        }, 5000);
+                                        }, 2000);
                                     } else if (volleyError instanceof TimeoutError) {
                                         errorMessage = "Connection TimeOut! Please check your internet connection.";
                                         Handler handler = new Handler();
@@ -186,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                                                 passWord.setText("");
                                             }
-                                        }, 5000);
+                                        }, 2000);
                                     }
                                 }
                             });

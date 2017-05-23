@@ -97,7 +97,7 @@ public class DriverBooking extends AppCompatActivity implements  View.OnClickLis
         }
 
         //Initializing
-        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         timeFormatter = new SimpleDateFormat("H:mm");
         pickupLoc = (EditText) findViewById(R.id.pickupLocation);
         btnDatePicker = (Button) findViewById(R.id.datePicker);

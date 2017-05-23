@@ -6,39 +6,59 @@ package com.something.android.kickstartcab.Fragment;
 
 public class BookingInfo {
     //Data Variables
-    private String billNumber;
-    private String totalDriveTime;
-    private String totalAmount;
-    private String paymentStatus;
+    private String bookingId;
+    private String startDate;
+    private String startTime;
+    private String vehicleType;
+    private String packageType;
+    private String bookingStatus;
 
-    public String getBillNumber(){
-        return billNumber;
-    }
-
-    public void setBillNumber(String billNumber){
-        this.billNumber = billNumber;
-    }
-    public String getTotalDriveTime(){
-        return totalDriveTime;
+    public String getBookingId(){
+        return bookingId;
     }
 
-    public void setTotalDriveTime(String totalDriveTime){
-        this.totalDriveTime = totalDriveTime;
+    public void setBookingId(String bookingId){
+        this.bookingId = bookingId;
     }
 
-    public String getTotalAmount(){
-        return totalAmount;
+    public String getStartDate(){
+        return startDate;
     }
 
-    public void setTotalAmount(String totalAmount){
-        this.totalAmount = totalAmount;
+    public void setStartDate(String startDate){
+        this.startDate = startDate;
     }
 
-    public String getPaymentStatus(){
-        return paymentStatus;
+    public String getStartTime(){
+        return startTime;
     }
 
-    public void setPaymentStatus(String paymentStatus){
-        this.paymentStatus = paymentStatus;
+    public void setStartTime(String startTime){
+        this.startTime = startTime;
     }
+
+    public String getVehicleType(){
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType){
+        this.vehicleType = vehicleType;
+    }
+
+    public String getPackageType(){
+        return packageType;
+    }
+
+    public void setPackageType(String packageType){
+        this.packageType = packageType;
+    }
+
+    public String getBookingStatus(){
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(String bookingStatus){
+        this.bookingStatus = bookingStatus;
+    }
+
 }

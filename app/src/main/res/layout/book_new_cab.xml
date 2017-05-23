@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:id="@+id/cab_booking"
     tools:context="com.something.android.kickstartcab.CabBooking">
 
     <RelativeLayout
@@ -97,11 +98,12 @@
                     android:textSize="16sp" />
             </LinearLayout>
             <!--Package Selection-->
-            <Spinner
-                android:id="@+id/packageSelection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp" />
+                <Spinner
+                    android:id="@+id/packageSelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     />
+
             <Spinner
                 android:id="@+id/chooseCity"
                 android:layout_width="match_parent"
